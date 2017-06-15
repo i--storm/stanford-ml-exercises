@@ -24,10 +24,38 @@ sigma = 0.3;
 %
 
 
+errors=[];
+values=[0.01,0.03,0.1,0.3,1,3,10,30];
+for currC = values
+  for currS = values
+    
+    
+    model=svmTrain(X, y, currC, @(x1, x2) gaussianKernel(x1, x2, currS));
+    
+    predictions = svmPredict(model, Xval);
+    
+    error=mean(double(predictions ~= yval));
+    
+    errors=[errors; error];
+    
+    l=length(errors)
+    
+  endfor;
+endfor;
 
+[val, idx]=min(errors)
 
+C = values((idx-mod((idx),8))/8+1)
 
+sigma = values(mod(idx,8))
 
+model=svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2, sigma));
+    
+predictions = svmPredict(model, Xval);
+
+error=mean(double(predictions ~= yval))
+
+l=0.55;
 
 % =========================================================================
 
