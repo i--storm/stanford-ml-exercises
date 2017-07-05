@@ -1,10 +1,10 @@
-> Anyone knows how much it costs to host a web portal ?
->
-Well, it depends on how many visitors you're expecting.
-This can be anywhere from less than 10 bucks a month to a couple of $100. 
-You should checkout http://www.rackspace.com/ or perhaps Amazon EC2 
-if youre running something big..
+Hi, data preparation is required when working with neural network and deep learning models.
 
-To unsubscribe yourself from this mailing list, send an email to:
-groupname-unsubscribe@egroups.com
+Increasingly data augmentation is also required on more complex object recognition tasks. This is where images in your dataset are modified with random flips and shifts. This in essence makes your training dataset larger and helps your model to generalize the position and orientation of objects in images.
+
+Keras provides an image augmentation API that will create modified versions of images in your dataset just-in-time. The ImageDataGenerator class can be used to define the image augmentation operations to perform which can be fit to a dataset and then used in place of your dataset when training your model.
+
+Your goal with this lesson is to experiment with the Keras image augmentation API using a dataset you are already familiar with from a previous lesson like MNIST or CIFAR-10.
+
+For example, the example below creates random rotations of up to 90 degrees of images in the MNIST dataset.
 
